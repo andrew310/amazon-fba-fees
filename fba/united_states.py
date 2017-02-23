@@ -1,6 +1,6 @@
 from .fees import Common
 from math import ceil
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 
 class UnitedStates(Common):
@@ -63,7 +63,7 @@ class UnitedStates(Common):
         return (values[0] <= 8 and values[1] <= 14
                 and values[2] <= 18 and wt <= 20)
 
-    def outbound_weight(self, volume, weight, oversize):
+    def get_outbound_weight(self, volume, weight, oversize):
         """"Outbound Shipping Weight Calculation
         if package volume is greater than 5184, or if oversize,
         use dim weight if greater than unit weight
@@ -77,7 +77,7 @@ class UnitedStates(Common):
 
         return o_weight
 
-    def product_size_tier(self, length, width, height, weight, media):
+    def get_product_size_tier(self, length, width, height, weight, media):
         """ Returns string describing product size tier """
 
         girth = 2 * (width + height) + length
@@ -123,6 +123,8 @@ class UnitedStates(Common):
         for d in requiredDims:
             if d not in amazon.__dict__.keys():
                 return False
+            elif amazon.__dict__[d] is None:
+                return False
 
         weight = amazon.shipping_weight
         width = amazon.shipping_width
@@ -141,11 +143,12 @@ class UnitedStates(Common):
             return False
 
         oversize = not self.is_standard(length, width, height, weight)
-        volume = self.getVolume(length, width, height)
-        o_weight = self.outbound_weight(volume, weight, oversize)
+        volume = self.get_volume(length, width, height)
+        o_weight = self.get_outbound_weight(volume, weight, oversize)
 
         media = self.is_media(category)
-        size = self.product_size_tier(length, width, height, o_weight, media)
+        size = self.get_product_size_tier(length, width, height,
+                                          o_weight, media)
 
         sizes = ["small_oversize", "medium_oversize", "large_oversize"]
 
@@ -171,9 +174,9 @@ class UnitedStates(Common):
             pick_and_pack += 0.40
 
         fee = order_handling + pick_and_pack + weight_handling
-        return round(Decimal(fee), 2)
+        return Decimal(fee).quantize(Decimal('.02'), rounding=ROUND_HALF_UP)
 
-    def get_monthly_storage(self, date, l, w, h):
+    def get_monthly_storage(self, month, l, w, h):
         """Returns amazon storage fee for United States """
 
         volume = self.get_volume(l, w, h)
@@ -183,12 +186,14 @@ class UnitedStates(Common):
 
         cubic_feet = volume / 1728
         size = max(l, w, h) < 60
-        endOfYear = month in [11, 12]
+        end_of_year = month in [11, 12]
 
         def _get_multiplier(std, endYear):
             if std:
-                return Decimal('0.54') if not endYear else Decimal('2.25')
+                return Decimal('0.54') if not end_of_year else Decimal('2.25')
             else:
-                return Decimal('0.43') if not endYear else Decimal('1.15')
+                return Decimal('0.43') if not end_of_year else Decimal('1.15')
 
-        return round(cubic_feet * _get_multiplier(size, endOfYear), 2)
+        res = Decimal(cubic_feet * _get_multiplier(size, end_of_year))
+
+        return res.quantize(Decimal('.02'), rounding=ROUND_HALF_UP)
