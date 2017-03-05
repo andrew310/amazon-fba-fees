@@ -1,6 +1,9 @@
-from .fees import Common
 from math import ceil
 from decimal import Decimal, ROUND_HALF_UP
+from dateutil.parser import parse
+
+from ..fees import Common
+from .monthly_storage import get_multiplier
 
 
 class UnitedStates(Common):
@@ -53,7 +56,16 @@ class UnitedStates(Common):
         return prelim(weight)
 
     def is_standard(self, l, w, h, wt):
-        """Dims are in inches, weight in ounces """
+        """Dims are in inches, weight in ounces.
+        Hasn't changed for 2017.
+
+        From Amazon:
+        https://www.amazon.com/gp/help/customer/display.html?nodeId=201119390
+        Any packaged item that is 20 lb. or less
+        with its longest side 18" or less,
+        and its median side 14" or less.
+        its shortest side 8" or less,
+        """
 
         # make sure all are floats
         values = list(map(lambda x: float(x), [l, w, h]))
@@ -176,8 +188,12 @@ class UnitedStates(Common):
         fee = order_handling + pick_and_pack + weight_handling
         return Decimal(fee).quantize(Decimal('.02'), rounding=ROUND_HALF_UP)
 
-    def get_monthly_storage(self, month, l, w, h):
-        """Returns amazon storage fee for United States """
+    def get_monthly_storage(self, date, l, w, h, wt):
+        """Returns amazon storage fee for United States.
+
+        This function is date agnostic.
+        Multiplier is based on date passed in.
+        """
 
         volume = self.get_volume(l, w, h)
 
@@ -185,15 +201,14 @@ class UnitedStates(Common):
             return None
 
         cubic_feet = volume / 1728
-        size = max(l, w, h) < 60
-        end_of_year = month in [11, 12]
+        size = self.is_standard(l, w, h, wt)
 
-        def _get_multiplier(std, endYear):
-            if std:
-                return Decimal('0.54') if not end_of_year else Decimal('2.25')
-            else:
-                return Decimal('0.43') if not end_of_year else Decimal('1.15')
+        # Find correct multiplier based on date, since fees change
+        multiplier = get_multiplier(date)
+        month = parse(date).month
 
-        res = Decimal(cubic_feet * _get_multiplier(size, end_of_year))
+        # Pass in month and size to the multiplier we were given
+        res = Decimal(cubic_feet * multiplier(size, month))
+        print(volume, month)
 
         return res.quantize(Decimal('.02'), rounding=ROUND_HALF_UP)

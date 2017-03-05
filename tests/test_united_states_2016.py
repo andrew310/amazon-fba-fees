@@ -137,24 +137,50 @@ class FeesTestUnitedStates(TestCase):
 
         self.assertEqual(Decimal('0.15'), fee)
 
-    def test_get_monthly_storage_united_states(self):
+    def test_get_monthly_storage_oversize(self):
         amazon = AmazonProduct()
-        # Standard sized inventory.
-        amazon.shipping_width = Decimal(10)
-        amazon.shipping_height = Decimal(20)
-        amazon.shipping_length = Decimal(30)
-        amazon.shipping_weight = Decimal(30)
+
+        # oversize inventory
+        amazon.shipping_length = l = Decimal(30)
+        amazon.shipping_width = w = Decimal(10)
+        amazon.shipping_height = h = Decimal(20)
+        amazon.shipping_weight = wt = Decimal(30)
 
         fees = Fees()
 
         feeList = fees.unpack_dimensions(amazon)
 
         # Not end of year
-        month = 1
+        date = '2016-09-01'
 
-        fee = fees.get_monthly_storage(month, *feeList)
+        fee = fees.get_monthly_storage(date, l, w, h, wt)
 
-        self.assertEqual(Decimal('1.88'), fee)
+        self.assertEqual(Decimal('1.49'), fee)
+
+    def test_get_monthly_storage_standard_size(self):
+        amazon = AmazonProduct()
+        # standard changed from .54 to .64 for not end of year
+
+        # B013WM1DOY
+        # Product Dimensions: 12 X 10 X 2 inches
+        # Unit Weight: 1.65 pounds
+        amazon.shipping_length = l = Decimal(12)
+        amazon.shipping_width = w = Decimal(10)
+        amazon.shipping_height = h = Decimal(2)
+        amazon.shipping_weight = wt = Decimal(1.65)
+
+        fees = Fees()
+
+        feeList = fees.unpack_dimensions(amazon)
+
+        # Not end of year
+        date = '2016-03-02'
+
+        fee = fees.get_monthly_storage(date, l, w, h, wt)
+
+        self.assertEqual(Decimal('.08'), fee)
+
+
 
 
 class AmazonProduct(object):

@@ -1,6 +1,4 @@
 from .fees import Common
-from math import ceil
-from decimal import Decimal
 
 
 class UnitedKingdom(Common):
