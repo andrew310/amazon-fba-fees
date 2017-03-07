@@ -65,6 +65,37 @@ class FeesTestUnitedStates2017(TestCase):
 
         self.assertEqual(Decimal('.09'), fee)
 
+    def test_get_fba_fee(self):
+        products = [
+            dict(width=5.30, height=0.50, length=6.70, weight=0.16,
+                 category='Video Games', fee='2.41'),  # media small standard
+            dict(width=6.77, height=0.63, length=7.87, weight=0.31,
+                 category='Toy', fee='2.41'),  # small standard
+            dict(width=6.77, height=0.63, length=7.87, weight=0.31,
+                 category='Apparel', fee='2.81'),  # small standard apparel
+            dict(width=11.40, height=0.90, length=14.40, weight=0.45,
+                 category='Toy', fee='2.99'),  # large standard
+            dict(width=13.00, height=8.30, length=20.30, weight=14.05,
+                 category='Toy', fee='12.31'),  # small oversize
+            dict(width=32.50, height=21.70, length=40.00, weight=103.00,
+                 category='Toy', fee='150.96'),  # special oversize
+        ]
+
+        for product in products:
+            amazon = AmazonProduct()
+            amazon.sales_rank_category = product['category']
+            amazon.shipping_width = Decimal(product['width'])
+            amazon.shipping_height = Decimal(product['height'])
+            amazon.shipping_length = Decimal(product['length'])
+            amazon.shipping_weight = Decimal(product['weight'])
+
+            fees = Fees("US", 2017)
+
+            fee = fees.get_fba_fee(amazon)
+
+            print(type(fee))
+
+            self.assertEqual(Decimal(product['fee']), fee)
 
 class AmazonProduct(object):
     pass

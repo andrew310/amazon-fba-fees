@@ -88,7 +88,7 @@ class FeesTestUnitedStates(TestCase):
             amazon.shipping_length = Decimal(product['length'])
             amazon.shipping_weight = Decimal(product['weight'])
 
-            fees = Fees()
+            fees = Fees("US", 2016)
 
             fee = fees.get_fba_fee(amazon)
 

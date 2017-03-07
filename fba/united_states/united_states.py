@@ -1,3 +1,4 @@
+import datetime
 from math import ceil
 from decimal import Decimal, ROUND_HALF_UP
 from dateutil.parser import parse
@@ -10,6 +11,40 @@ class UnitedStates(Common):
     """United states fee calculations
     https://www.amazon.com/gp/aw/help/id=201119390
     """
+    def __init__(self, year=2017):
+        self._year = year
+        self._fee_schedule = {
+            "small_standard": {
+                "non-media": 2.41,
+                "media": 2.41
+            },
+            "large_standard": {
+                "non-media": {
+                    "a": 2.99,
+                    "b": 4.18,
+                    "c": lambda wt: (4.18 + max((wt - 2), 0) * 0.39)
+                },
+                "media": {
+                    "a": 2.41,
+                    "b": 2.99,
+                    "c": lambda wt: (4.18 + max((wt - 2), 0) * 0.39)
+                }
+            },
+            "small_oversize": lambda wt: (6.85 + max((wt - 2), 0) * 0.39),
+            "medium_oversize": lambda wt: (9.20 + max((wt - 2), 0) * 0.39),
+            "large_oversize": lambda wt: (75.06 + max((wt - 90), 0) * 0.80),
+            "special_oversize": lambda wt: (138.08 + max((wt - 90), 0) * 0.92),
+        }
+
+    def _weight_class(self, wt):
+        if(wt <= 1):
+            return 'a'
+        elif(wt > 1 and wt <= 2):
+            return 'b'
+        else:
+            return 'c'
+
+        return -1
 
     def get_order_handling(self, size, media):
         if size in ["small_standard", "large_standard"] and media is False:
@@ -125,6 +160,21 @@ class UnitedStates(Common):
             if _compare(matrix):
                 return tier[1]
 
+    def _determine_fee(self, tier, media, weight):
+        if(tier == "small_standard"):
+            return self._fee_schedule[tier][media]
+        elif(tier == "large_standard"):
+            wt_class = self._weight_class(weight)
+            if(wt_class == 'a' or wt_class == 'b'):
+                return self._fee_schedule[tier][media][wt_class]
+            elif(wt_class == 'c'):
+                return self._fee_schedule[tier][media][wt_class](weight)
+        elif(tier == "small_oversize" or "special_oversize"):
+            return self._fee_schedule[tier](weight)
+
+        return 'undetermined fee'
+
+
     def get_fba_fee(self, amazon):
         requiredDims = ["shipping_weight", "shipping_width",
                         "shipping_height", "shipping_length"]
@@ -176,16 +226,21 @@ class UnitedStates(Common):
         shipping_weight = ceil(shipping_weight)
 
         mediaStr = "media" if media else "non-media"
-        order_handling = self.get_order_handling(size, media)
-        pick_and_pack = self.get_pick_and_pack(size)
-        weight_handling = self.get_weight_handling(size, mediaStr,
-                                                   shipping_weight)
+
+        if(self._year == 2016):
+            order_handling = self.get_order_handling(size, media)
+            pick_and_pack = self.get_pick_and_pack(size)
+            weight_handling = self.get_weight_handling(size, mediaStr,
+                                                       shipping_weight)
+
+            fee = order_handling + pick_and_pack + weight_handling
+        elif(self._year == 2017):
+            fee = self._determine_fee(size, mediaStr, shipping_weight)
 
         # clothing gets $0.40 additional pick and pack fee
         if category == 'Apparel':
-            pick_and_pack += 0.40
+            fee += 0.40
 
-        fee = order_handling + pick_and_pack + weight_handling
         return Decimal(fee).quantize(Decimal('.02'), rounding=ROUND_HALF_UP)
 
     def get_monthly_storage(self, date, l, w, h, wt):
