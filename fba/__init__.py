@@ -7,9 +7,9 @@ CA = Canada()
 UK = UnitedKingdom()
 
 
-def Fees(marketplace="US"):
+def Fees(marketplace="US", year="2017"):
     """Factory function returns class corresponding to country """
 
     factory = {"US": UnitedStates, "CA": Canada, "UK": UnitedKingdom}
 
-    return factory[marketplace]()
+    return factory[marketplace](year)
