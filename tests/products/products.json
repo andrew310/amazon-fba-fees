@@ -1,0 +1,87 @@
+{
+  "infinitewarefare":{
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Call of Duty: Infinite Warfare - Standard Edition - Xbox One",
+    "asin": "B01EZA0D8O",
+    "dimensions-in": [
+      6.77,
+      5.43,
+      0.63
+    ],
+    "weight-lb": 0.09,
+    "category": "Video Games",
+    "fulfillmentfee-usd": 2.41,
+    "monthlystorage-usd": 0.01,
+    "fulfillment-usd": 2.42
+  },
+  "gunmetalcabinet": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "American Furniture Classics 916 16 Gun Metal Cabinet, Black",
+    "asin": "B005XC1DLA",
+    "dimensions-in": [
+      57,
+      25,
+      8
+    ],
+    "weight-lb": 103.3,
+    "category": "TBD",
+    "fulfillmentfee-usd": 49.37,
+    "monthlystorage-usd": 2.84,
+    "fulfillment-usd": 52.21
+  },
+  "powerwheelsrideon": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Power Wheels Barbie Jammin Jeep Wrangler",
+    "asin": "B00IVDVX72",
+    "dimensions-in": [
+      52.6,
+      25.43,
+      11.26
+    ],
+    "weight-lb": 78,
+    "category": "TBD",
+    "fulfillmentfee-usd": 44.30,
+    "monthlystorage-usd": 3.75,
+    "fulfillment-usd": 48.05
+  },
+  "xbone": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Microsoft Xbox One 500 GB Console - Black",
+    "asin": "B00KAI3KW2",
+    "dimensions-in": [
+      17,
+      13.4,
+      7.4
+    ],
+    "weight-lb": 11.95,
+    "category": "TBD",
+    "fulfillmentfee-usd": 8.47,
+    "monthlystorage-usd": 0.62,
+    "fulfillment-usd": 9.09
+  },
+  "deodorantpack": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Old Spice, Sweat Defense, 2.6 Ounce Sticks (Pack of 4)",
+    "asin": "B001G7PN8K",
+    "dimensions-in": [
+      10.3,
+      5.4,
+      1.9
+    ],
+    "weight-lb": 1.00,
+    "category": "TBD",
+    "fulfillmentfee-usd": 4.18,
+    "monthlystorage-usd": 0.04,
+    "fulfillment-usd": 4.22
+  }
+}

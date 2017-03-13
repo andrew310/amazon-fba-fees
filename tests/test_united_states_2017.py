@@ -67,6 +67,8 @@ class FeesTestUnitedStates2017(TestCase):
 
     def test_get_fba_fee(self):
         products = [
+        dict(width=5.43, height=0.63, length=6.77, weight=0.16,
+             category='Video Games', fee='2.41'),  # media small standard
             dict(width=5.30, height=0.50, length=6.70, weight=0.16,
                  category='Video Games', fee='2.41'),  # media small standard
             dict(width=6.77, height=0.63, length=7.87, weight=0.31,
