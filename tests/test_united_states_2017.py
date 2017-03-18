@@ -67,9 +67,14 @@ class FeesTestUnitedStates2017(TestCase):
         self.assertEqual(Decimal('.09'), fee)
 
     def test_get_fba_fee(self):
+        # https://tinyurl.com/ly9rh5v
         TWOPLACES = Decimal(10) ** -2
+
+        # https://tinyurl.com/mo5qjql
         script_dir = os.path.dirname(__file__)
         json_path = os.path.join(script_dir, 'products/products.json')
+
+        # https://tinyurl.com/ku2zvkm
         with open(json_path, encoding='utf-8') as data_file:
             products = json.load(data_file)
 
