@@ -1,7 +1,8 @@
 from unittest import TestCase
 from fba import Fees
 from decimal import Decimal
-
+import json
+import os
 
 class FeesTestUnitedStates2017(TestCase):
     def test_is_standard(self):
@@ -66,38 +67,34 @@ class FeesTestUnitedStates2017(TestCase):
         self.assertEqual(Decimal('.09'), fee)
 
     def test_get_fba_fee(self):
-        products = [
-        dict(width=5.43, height=0.63, length=6.77, weight=0.16,
-             category='Video Games', fee='2.41'),  # media small standard
-            dict(width=5.30, height=0.50, length=6.70, weight=0.16,
-                 category='Video Games', fee='2.41'),  # media small standard
-            dict(width=6.77, height=0.63, length=7.87, weight=0.31,
-                 category='Toy', fee='2.41'),  # small standard
-            dict(width=6.77, height=0.63, length=7.87, weight=0.31,
-                 category='Apparel', fee='2.81'),  # small standard apparel
-            dict(width=11.40, height=0.90, length=14.40, weight=0.45,
-                 category='Toy', fee='2.99'),  # large standard
-            dict(width=13.00, height=8.30, length=20.30, weight=14.05,
-                 category='Toy', fee='12.31'),  # small oversize
-            dict(width=32.50, height=21.70, length=40.00, weight=103.00,
-                 category='Toy', fee='150.96'),  # special oversize
-        ]
+        TWOPLACES = Decimal(10) ** -2
+        script_dir = os.path.dirname(__file__)
+        json_path = os.path.join(script_dir, 'products/products.json')
+        with open(json_path, encoding='utf-8') as data_file:
+            products = json.load(data_file)
 
         for product in products:
+            item = products[product]
             amazon = AmazonProduct()
-            amazon.sales_rank_category = product['category']
-            amazon.shipping_width = Decimal(product['width'])
-            amazon.shipping_height = Decimal(product['height'])
-            amazon.shipping_length = Decimal(product['length'])
-            amazon.shipping_weight = Decimal(product['weight'])
+            amazon.sales_rank_category = item['category']
+            amazon.shipping_width = Decimal(item['dimensions-in'][1])
+            amazon.shipping_height = Decimal(item['dimensions-in'][2])
+            amazon.shipping_length = Decimal(item['dimensions-in'][0])
+            amazon.shipping_weight = Decimal(item['weight-lb'])
 
             fees = Fees("US", 2017)
 
             fee = fees.get_fba_fee(amazon)
 
-            print(type(fee))
+            reference_fee = Decimal(
+                item['fulfillmentfee-usd']).quantize(TWOPLACES)
 
-            self.assertEqual(Decimal(product['fee']), fee)
+            print(type(fee))
+            print('Product: ' + item['description'])
+            print('Expected fee: ' + str(reference_fee))
+            print('Calculated fee: ' + str(fee))
+
+            self.assertEqual(reference_fee, fee)
 
 class AmazonProduct(object):
     pass
