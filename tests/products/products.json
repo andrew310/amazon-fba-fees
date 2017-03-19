@@ -29,8 +29,15 @@
       "usd": 0.01,
       "cad": 0.01
     },
+    "pickandpack": {
+      "cad": 0.90
+    },
+    "weighthandling": {
+      "cad": 1.90
+    },
     "totalfulfilment": {
-      "usd": 2.42
+      "usd": 2.42,
+      "cad": 2.81
     }
   },
   "gunmetalcabinet": {
