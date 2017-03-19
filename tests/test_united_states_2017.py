@@ -82,17 +82,17 @@ class FeesTestUnitedStates2017(TestCase):
             item = products[product]
             amazon = AmazonProduct()
             amazon.sales_rank_category = item['category']
-            amazon.shipping_width = Decimal(item['dimensions-in'][1])
-            amazon.shipping_height = Decimal(item['dimensions-in'][2])
-            amazon.shipping_length = Decimal(item['dimensions-in'][0])
-            amazon.shipping_weight = Decimal(item['weight-lb'])
+            amazon.shipping_width = Decimal(item['dimensions']['in'][1])
+            amazon.shipping_height = Decimal(item['dimensions']['in'][2])
+            amazon.shipping_length = Decimal(item['dimensions']['in'][0])
+            amazon.shipping_weight = Decimal(item['weight']['lb'])
 
             fees = Fees("US", 2017)
 
             fee = fees.get_fba_fee(amazon)
 
             reference_fee = Decimal(
-                item['fulfillmentfee-usd']).quantize(TWOPLACES)
+                item['fulfilmentfee']['usd']).quantize(TWOPLACES)
 
             print(type(fee))
             print('Product: ' + item['description'])
