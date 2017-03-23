@@ -80,26 +80,28 @@ class FeesTestUnitedStates2017(TestCase):
 
         for product in products:
             item = products[product]
-            amazon = AmazonProduct()
-            amazon.sales_rank_category = item['category']
-            amazon.shipping_width = Decimal(item['dimensions']['in'][1])
-            amazon.shipping_height = Decimal(item['dimensions']['in'][2])
-            amazon.shipping_length = Decimal(item['dimensions']['in'][0])
-            amazon.shipping_weight = Decimal(item['weight']['lb'])
+            if 'us' in item['countries']:
+                amazon = AmazonProduct()
+                amazon.sales_rank_category = item['category']
+                amazon.shipping_width = Decimal(item['dimensions']['in'][1])
+                amazon.shipping_height = Decimal(item['dimensions']['in'][2])
+                amazon.shipping_length = Decimal(item['dimensions']['in'][0])
+                amazon.shipping_weight = Decimal(item['weight']['lb'])
 
-            fees = Fees("US", 2017)
+                fees = Fees("US", 2017)
+                fee = fees.get_fba_fee(amazon)
 
-            fee = fees.get_fba_fee(amazon)
+                reference_fee = Decimal(
+                    item['fulfilmentfee']['usd']).quantize(TWOPLACES)
 
-            reference_fee = Decimal(
-                item['fulfilmentfee']['usd']).quantize(TWOPLACES)
+                print('The type is: ' + str(type(fee)))
+                print('Product: ' + item['description'])
+                print('Expected fee: ' + str(reference_fee))
+                print('Calculated fee: ' + str(fee))
 
-            print(type(fee))
-            print('Product: ' + item['description'])
-            print('Expected fee: ' + str(reference_fee))
-            print('Calculated fee: ' + str(fee))
-
-            self.assertEqual(reference_fee, fee)
+                self.assertEqual(reference_fee, fee)
+            else:
+                print('No US information for: ' + str(item['description']))
 
 class AmazonProduct(object):
     pass

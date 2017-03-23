@@ -6,6 +6,10 @@
     "description": "Call of Duty: Infinite Warfare - Standard Edition - Xbox One",
     "asin": "B01EZA0D8O",
     "category": "Video Games",
+    "countries": {
+      "us": true,
+      "ca": true
+    },
     "dimensions": {
       "in": [
         6.77,
@@ -47,6 +51,9 @@
     "description": "American Furniture Classics 916 16 Gun Metal Cabinet, Black",
     "asin": "B005XC1DLA",
     "category": "TBD",
+    "countries": {
+      "us": true
+    },
     "dimensions": {
       "in": [
         57,
@@ -74,6 +81,9 @@
     "description": "Power Wheels Barbie Jammin Jeep Wrangler",
     "asin": "B00IVDVX72",
     "category": "TBD",
+    "countries": {
+      "us":true
+    },
     "dimensions": {
       "in": [
         52.6,
@@ -101,6 +111,10 @@
     "description": "Microsoft Xbox One 500 GB Console - Black",
     "asin": "B00KAI3KW2",
     "category": "TBD",
+    "countries": {
+      "us": true,
+      "ca": true
+    },
     "dimensions": {
       "in": [
         17,
@@ -122,7 +136,7 @@
     },
     "monthlystorage": {
       "usd": 0.62,
-      "cad": 0.44,
+      "cad": 0.44
     },
     "pickandpack": {
       "cad": 0.90
@@ -140,8 +154,12 @@
     "addedon": "3/13/2017",
     "datafrom": "Amazon.com",
     "description": "Old Spice, Sweat Defense, 2.6 Ounce Sticks (Pack of 4)",
-    "asin": "c",
+    "asin": "B001G7PN8K",
     "category": "TBD",
+    "countries": {
+      "us": true,
+      "ca": true
+    },
     "dimensions": {
       "in": [
         10.3,
@@ -182,6 +200,9 @@
     "description": "Fisher-Price Power Wheels Dune Racer",
     "asin": "B004M2BINA",
     "category": "TBD",
+    "countries": {
+      "ca": true
+    },
     "dimensions": {
       "cm": [
         127,
