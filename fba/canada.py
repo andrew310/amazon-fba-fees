@@ -7,21 +7,30 @@ class Canada(Common):
     """Canadian fee calculations
     https://www.amazon.ca/b/?node=13718757011
     """
+    def __init__(self, year=2017):
+        self.year = year
 
     def is_standard(self, l, w, h, g):
         """Dims are in cm, weight in grams """
 
         # make sure all are floats
-        values = list(map(lambda x: float(x), [l, w, h]))
+        # values = list(map(lambda x: float(x), [l, w, h]))
+        values = [
+            float(l),
+            float(w),
+            float(h)
+            ]
 
-        kg = float(g) / 1000
+        # kg = float(g) / 1000
+        kg = g
 
-        values.sort(reverse=True)
+        # values.sort(reverse=True)
 
         return (values[0] <= 45 and values[1] <= 35
                 and values[2] <= 20 and kg <= 9)
 
     def pick_and_pack(self, standard, media):
+        print("STANDARD RESULT: " + str(standard))
         if standard:
             return Decimal('0.90') if media else Decimal('1.55')
         else:
@@ -71,10 +80,11 @@ class Canada(Common):
             return False
 
         size = not self.is_standard(length, width, height, weight)
-        media = self.isMedia(category)
+        media = self.is_media(category)
 
         pnp = self.pick_and_pack(size, media)
         weight_handling = self.weight_handling(weight)
 
         fee = pnp + weight_handling
+
         return round(Decimal(fee), 2)

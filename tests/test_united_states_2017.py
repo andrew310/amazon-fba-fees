@@ -101,7 +101,7 @@ class FeesTestUnitedStates2017(TestCase):
 
                 self.assertEqual(reference_fee, fee)
             else:
-                print('No US information for: ' + str(item['description']))
+                print('No US information for ' + str(item['description']))
 
 class AmazonProduct(object):
     pass
