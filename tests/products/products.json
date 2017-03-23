@@ -106,19 +106,33 @@
         17,
         13.4,
         7.4
+      ],
+      "cm": [
+        43.18,
+        34.036,
+        18.796
       ]
     },
     "weight": {
-      "lb": 11.95
+      "lb": 11.95,
+      "kg": 5.4204
     },
     "fulfilmentfee": {
       "usd": 8.47
     },
     "monthlystorage": {
-      "usd": 0.62
+      "usd": 0.62,
+      "cad": 0.44,
+    },
+    "pickandpack": {
+      "cad": 0.90
+    },
+    "weighthandling":{
+      "cad":7.82
     },
     "totalfulfilment": {
-      "usd": 9.09
+      "usd": 9.09,
+      "cad": 9.16
     }
   },
   "deodorantpack": {
@@ -126,26 +140,69 @@
     "addedon": "3/13/2017",
     "datafrom": "Amazon.com",
     "description": "Old Spice, Sweat Defense, 2.6 Ounce Sticks (Pack of 4)",
-    "asin": "B001G7PN8K",
+    "asin": "c",
     "category": "TBD",
     "dimensions": {
       "in": [
         10.3,
         5.4,
         1.9
+      ],
+      "cm": [
+        26.162,
+        13.716,
+        4.826
       ]
     },
     "weight": {
-      "lb": 1.00
+      "lb": 1.00,
+      "kg": 0.4536
     },
     "fulfilmentfee": {
       "usd": 4.18
     },
     "monthlystorage": {
-      "usd": 0.04
+      "usd": 0.04,
+      "cad": 0.03
+    },
+    "pickandpack": {
+      "cad": 1.55
+    },
+    "weighthandling": {
+      "cad": 4.12
     },
     "totalfulfilment": {
       "usd": 4.22
+    }
+  },
+  "powerwheelsduneracer": {
+    "addedby": "flyball",
+    "addedon": "3/22/2017",
+    "datafrom": "Amazon.ca",
+    "description": "Fisher-Price Power Wheels Dune Racer",
+    "asin": "B004M2BINA",
+    "category": "TBD",
+    "dimensions": {
+      "cm": [
+        127,
+        73.406,
+        50.546
+      ]
+    },
+    "weight": {
+      "kg": 31.5473
+    },
+    "monthlystorage": {
+      "cad": 7.54
+    },
+    "pickandpack": {
+      "cad": 2.65
+    },
+    "weighthandling": {
+      "cad": 27.43
+    },
+    "totalfulfilment": {
+      "cad": 37.62
     }
   }
 }
