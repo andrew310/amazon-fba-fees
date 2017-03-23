@@ -27,7 +27,8 @@
       "kg": 0.0408
     },
     "fulfilmentfee": {
-      "usd": 2.41
+      "usd": 2.41,
+      "cad": 1.91
     },
     "monthlystorage": {
       "usd": 0.01,
@@ -132,7 +133,8 @@
       "kg": 5.4204
     },
     "fulfilmentfee": {
-      "usd": 8.47
+      "usd": 8.47,
+      "cad": 8.72
     },
     "monthlystorage": {
       "usd": 0.62,
@@ -177,7 +179,8 @@
       "kg": 0.4536
     },
     "fulfilmentfee": {
-      "usd": 4.18
+      "usd": 4.18,
+      "cad": 5.67
     },
     "monthlystorage": {
       "usd": 0.04,
@@ -213,6 +216,9 @@
     },
     "weight": {
       "kg": 31.5473
+    },
+    "fulfilmentfee": {
+      "cad": 30.08
     },
     "monthlystorage": {
       "cad": 7.54
