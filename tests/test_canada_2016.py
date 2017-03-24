@@ -33,7 +33,7 @@ class FeesTestCanada(TestCase):
                 fees = Fees("CA", 2016)
                 fee = fees.get_fba_fee(amazon)
                 reference_fee = Decimal(
-                    item['totalfulfilment']['cdn']).quantize(TWOPLACES)
+                    item['totalfulfilment']['cad']).quantize(TWOPLACES)
 
                 print('The type is: ' + str(type(fee)))
                 print('Product: ' + item['description'])

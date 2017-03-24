@@ -28,21 +28,21 @@
     },
     "fulfilmentfee": {
       "usd": 2.41,
-      "cdn": 1.91
+      "cad": 1.91
     },
     "monthlystorage": {
       "usd": 0.01,
-      "cdn": 0.01
+      "cad": 0.01
     },
     "pickandpack": {
-      "cdn": 0.90
+      "cad": 0.90
     },
     "weighthandling": {
-      "cdn": 1.90
+      "cad": 1.90
     },
     "totalfulfilment": {
       "usd": 2.42,
-      "cdn": 2.81
+      "cad": 2.81
     }
   },
   "gunmetalcabinet": {
@@ -134,21 +134,21 @@
     },
     "fulfilmentfee": {
       "usd": 8.47,
-      "cdn": 8.72
+      "cad": 8.72
     },
     "monthlystorage": {
       "usd": 0.62,
-      "cdn": 0.44
+      "cad": 0.44
     },
     "pickandpack": {
-      "cdn": 0.90
+      "cad": 0.90
     },
     "weighthandling":{
-      "cdn":7.82
+      "cad":7.82
     },
     "totalfulfilment": {
       "usd": 9.09,
-      "cdn": 9.16
+      "cad": 9.16
     }
   },
   "deodorantpack": {
@@ -180,21 +180,21 @@
     },
     "fulfilmentfee": {
       "usd": 4.18,
-      "cdn": 5.67
+      "cad": 5.67
     },
     "monthlystorage": {
       "usd": 0.04,
-      "cdn": 0.03
+      "cad": 0.03
     },
     "pickandpack": {
-      "cdn": 1.55
+      "cad": 1.55
     },
     "weighthandling": {
-      "cdn": 4.12
+      "cad": 4.12
     },
     "totalfulfilment": {
       "usd": 4.22,
-      "cdn": 5.70
+      "cad": 5.70
     }
   },
   "powerwheelsduneracer": {
@@ -218,19 +218,55 @@
       "kg": 31.5473
     },
     "fulfilmentfee": {
-      "cdn": 30.08
+      "cad": 30.08
     },
     "monthlystorage": {
-      "cdn": 7.54
+      "cad": 7.54
     },
     "pickandpack": {
-      "cdn": 2.65
+      "cad": 2.65
     },
     "weighthandling": {
-      "cdn": 27.43
+      "cad": 27.43
     },
     "totalfulfilment": {
-      "cdn": 37.62
+      "cad": 37.62
+    }
+  },
+  "quiltzipperbagcase": {
+    "addedby": "flyball",
+    "addedon": "3/23/2017",
+    "datafrom": "Amazon.ca",
+    "description": "Yosoo 3 Pcs Bamboo Charcoal Large Durable Foldable Clothes Quilt Pillow Blanket Storage Zipper Bag Case Container Organizers Container Box (Blue+Green+Orange)",
+    "asin": "B01CNC7G5O",
+    "category": "TBD",
+    "countries": {
+      "ca": true
+    },
+    "dimensions": {
+      "cm": [
+        32.9946,
+        25.8064,
+        8.0010
+      ]
+    },
+    "weight": {
+      "kg": 0.4808
+    },
+    "fulfilmentfee": {
+      "cad": 5.67
+    },
+    "monthlystorage": {
+      "cad": 0.11
+    },
+    "pickandpack": {
+      "cad": 1.55
+    },
+    "weighthandling": {
+      "cad": 4.12
+    },
+    "totalfulfilment": {
+      "cad": 5.78
     }
   }
 }
