@@ -22,16 +22,35 @@ class Canada(Common):
         kg = Decimal(g).quantize(FOURPLACES)
 
         if (ceil(values[0]) > 45):
-            # print("CHECKING Length: " + str(l))
             return False
         if (ceil(values[1]) > 35):
-            # print("CHECKING width: " + str(w))
             return False
         if (ceil(values[2]) > 20):
-            # print("CHECKING height: " + str(h))
             return False
         if (ceil(kg) > 9):
-            # print("CHECKING weight: " + str(kg))
+            return False
+
+        return True
+
+    def is_envelope(self, l, w, h, g):
+        """Dims are in cm, weight in kilograms """
+
+        FOURPLACES = Decimal(10) ** -4
+
+        # make sure all are floats
+        values = list(
+            map(lambda x: Decimal(float(x)).quantize(FOURPLACES), [l, w, h]))
+
+        kg = Decimal(g).quantize(FOURPLACES)
+
+
+        if (ceil(values[0]) > 38):
+            return False
+        if (ceil(values[1]) > 27):
+            return False
+        if (ceil(values[2]) > 2):
+            return False
+        if (kg > Decimal('0.5')):
             return False
 
         return True
@@ -45,16 +64,31 @@ class Canada(Common):
     def weight_handling(self, weight):
         """Leaving out envelopes for now """
 
-        weight_g = weight * 1000
+        # round up to next multiple of 500
+        weight_g = ceil((weight * 1000)/500) * 500
 
-        if weight_g <= 500:
-            return Decimal('3.75')
+        weight_fee  = Decimal('3.75')
 
+        if weight_g < 500:
+            return weight_fee
         else:
-            # Oversize, 3.75 for first 500g, plus 0.36 for each add'l 500g
-            return (Decimal('3.75')
-                    + (Decimal('0.37')
-                    * ceil((weight_g - 500)/500)))
+            return weight_fee + (
+                Decimal('0.37') * Decimal(ceil(weight_g/500)))
+
+
+    def weight_handling_envelope(self, weight):
+
+        # round up to next multiple of 100
+        weight_g = ceil((weight * 1000)/100) * 100
+
+        weight_fee  = Decimal('1.90')
+
+        if weight_g <= 100:
+            return weight_fee
+        else:
+            return weight_fee + (
+                Decimal('0.25') * Decimal(ceil(weight_g/100)))
+
 
     def get_monthly_storage(self, month, l=None, w=None, h=None):
         """Calculated per cubic meter """
@@ -88,11 +122,17 @@ class Canada(Common):
             return False
 
         size = self.is_standard(length, width, height, weight)
-        # print("STANDARD RESULT: " + str(size))
         media = self.is_media(category)
 
         pnp = self.pick_and_pack(size, media)
-        weight_handling = self.weight_handling(weight)
+
+        print(
+            "ENVELOOOOPE: " + str(self.is_envelope(length, width, height, weight)))
+
+        if(self.is_envelope(length, width, height, weight)):
+            weight_handling = self.weight_handling_envelope(weight)
+        else:
+            weight_handling = self.weight_handling(weight)
 
         monthly_storage = self.get_monthly_storage(3, length, width, height)
 

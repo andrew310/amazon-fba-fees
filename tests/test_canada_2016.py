@@ -7,6 +7,7 @@ import os
 # Simple class for testing purposes
 
 class FeesTestCanada(TestCase):
+
     def test_get_fba_fee(self):
         TWOPLACES = Decimal(10) ** -2
 
@@ -41,7 +42,8 @@ class FeesTestCanada(TestCase):
 
                 print(type(fee))
 
-                self.assertEqual(Decimal(reference_fee), fee)
+                self.assertEqual(
+                    Decimal(reference_fee).quantize(TWOPLACES), fee)
             else:
                 print('No CA information for: ' + str(item['description']))
 
