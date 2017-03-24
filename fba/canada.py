@@ -32,6 +32,7 @@ class Canada(Common):
 
         return True
 
+    # TODO (3/23/17): TEMP FIX, WILL GO AWAY
     def is_envelope(self, l, w, h, g):
         """Dims are in cm, weight in kilograms """
 
@@ -76,6 +77,7 @@ class Canada(Common):
                 Decimal('0.37') * Decimal(ceil(weight_g/500)))
 
 
+    # TODO (3/23/17): TEMP FIX, WILL GO AWAY
     def weight_handling_envelope(self, weight):
 
         # round up to next multiple of 100
@@ -88,7 +90,6 @@ class Canada(Common):
         else:
             return weight_fee + (
                 Decimal('0.25') * Decimal(ceil(weight_g/100)))
-
 
     def get_monthly_storage(self, month, l=None, w=None, h=None):
         """Calculated per cubic meter """

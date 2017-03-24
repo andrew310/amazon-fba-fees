@@ -28,21 +28,21 @@
     },
     "fulfilmentfee": {
       "usd": 2.41,
-      "cad": 1.91
+      "cdn": 1.91
     },
     "monthlystorage": {
       "usd": 0.01,
-      "cad": 0.01
+      "cdn": 0.01
     },
     "pickandpack": {
-      "cad": 0.90
+      "cdn": 0.90
     },
     "weighthandling": {
-      "cad": 1.90
+      "cdn": 1.90
     },
     "totalfulfilment": {
       "usd": 2.42,
-      "cad": 2.81
+      "cdn": 2.81
     }
   },
   "gunmetalcabinet": {
@@ -134,21 +134,21 @@
     },
     "fulfilmentfee": {
       "usd": 8.47,
-      "cad": 8.72
+      "cdn": 8.72
     },
     "monthlystorage": {
       "usd": 0.62,
-      "cad": 0.44
+      "cdn": 0.44
     },
     "pickandpack": {
-      "cad": 0.90
+      "cdn": 0.90
     },
     "weighthandling":{
-      "cad":7.82
+      "cdn":7.82
     },
     "totalfulfilment": {
       "usd": 9.09,
-      "cad": 9.16
+      "cdn": 9.16
     }
   },
   "deodorantpack": {
@@ -180,21 +180,21 @@
     },
     "fulfilmentfee": {
       "usd": 4.18,
-      "cad": 5.67
+      "cdn": 5.67
     },
     "monthlystorage": {
       "usd": 0.04,
-      "cad": 0.03
+      "cdn": 0.03
     },
     "pickandpack": {
-      "cad": 1.55
+      "cdn": 1.55
     },
     "weighthandling": {
-      "cad": 4.12
+      "cdn": 4.12
     },
     "totalfulfilment": {
       "usd": 4.22,
-      "cad": 5.70
+      "cdn": 5.70
     }
   },
   "powerwheelsduneracer": {
@@ -218,19 +218,19 @@
       "kg": 31.5473
     },
     "fulfilmentfee": {
-      "cad": 30.08
+      "cdn": 30.08
     },
     "monthlystorage": {
-      "cad": 7.54
+      "cdn": 7.54
     },
     "pickandpack": {
-      "cad": 2.65
+      "cdn": 2.65
     },
     "weighthandling": {
-      "cad": 27.43
+      "cdn": 27.43
     },
     "totalfulfilment": {
-      "cad": 37.62
+      "cdn": 37.62
     }
   }
 }
