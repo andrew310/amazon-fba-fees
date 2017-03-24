@@ -44,7 +44,6 @@ class Canada(Common):
 
         kg = Decimal(g).quantize(FOURPLACES)
 
-
         if (ceil(values[0]) > 38):
             return False
         if (ceil(values[1]) > 27):
@@ -75,7 +74,6 @@ class Canada(Common):
         else:
             return weight_fee + (
                 Decimal('0.37') * Decimal(ceil(weight_g/500)))
-
 
     # TODO (3/23/17): TEMP FIX, WILL GO AWAY
     def weight_handling_envelope(self, weight):
@@ -127,19 +125,12 @@ class Canada(Common):
 
         pnp = self.pick_and_pack(size, media)
 
-        print(
-            "ENVELOOOOPE: " + str(self.is_envelope(length, width, height, weight)))
-
         if(self.is_envelope(length, width, height, weight)):
             weight_handling = self.weight_handling_envelope(weight)
         else:
             weight_handling = self.weight_handling(weight)
 
         monthly_storage = self.get_monthly_storage(3, length, width, height)
-
-        print('pnp: ' + str(pnp))
-        print('wh: ' + str(weight_handling))
-        print('monthly_storage: ' + str(monthly_storage))
 
         fee = pnp + weight_handling + monthly_storage
 

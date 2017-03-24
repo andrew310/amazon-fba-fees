@@ -264,6 +264,6 @@ class UnitedStates(Common):
 
         # Pass in month and size to the multiplier we were given
         res = Decimal(cubic_feet * multiplier(size, month))
-        print(volume, month)
+        # print(volume, month)
 
         return res.quantize(Decimal('.02'), rounding=ROUND_HALF_UP)
