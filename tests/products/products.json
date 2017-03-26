@@ -8,7 +8,8 @@
     "category": "Video Games",
     "countries": {
       "us": true,
-      "ca": true
+      "ca": true,
+      "uk": true,
     },
     "dimensions": {
       "in": [
@@ -28,11 +29,13 @@
     },
     "fulfilmentfee": {
       "usd": 2.41,
-      "cad": 1.91
+      "cad": 1.91,
+      "ps": 1.19
     },
     "monthlystorage": {
       "usd": 0.01,
-      "cad": 0.01
+      "cad": 0.01,
+      "ps": 0.00
     },
     "pickandpack": {
       "cad": 0.90
@@ -42,7 +45,8 @@
     },
     "totalfulfilment": {
       "usd": 2.42,
-      "cad": 2.81
+      "cad": 2.81,
+      "ps": 1.19
     }
   },
   "gunmetalcabinet": {
@@ -114,7 +118,8 @@
     "category": "Video Games",
     "countries": {
       "us": true,
-      "ca": true
+      "ca": true,
+      "uk": true
     },
     "dimensions": {
       "in": [
@@ -134,11 +139,13 @@
     },
     "fulfilmentfee": {
       "usd": 8.47,
-      "cad": 8.72
+      "cad": 8.72,
+      "ps": 3.33
     },
     "monthlystorage": {
       "usd": 0.62,
-      "cad": 0.44
+      "cad": 0.44,
+      "ps": 0.29
     },
     "pickandpack": {
       "cad": 0.90
@@ -148,7 +155,8 @@
     },
     "totalfulfilment": {
       "usd": 9.09,
-      "cad": 9.16
+      "cad": 9.16,
+      "ps": 3.62
     }
   },
   "deodorantpack": {
@@ -267,6 +275,36 @@
     },
     "totalfulfilment": {
       "cad": 5.78
+    }
+  },
+  "sapienshistorybook": {
+    "addedby": "flyball",
+    "addedon": "3/26/2017",
+    "datafrom": "Amazon.co.uk",
+    "description": "Sapiens: A brief History of Humankind",
+    "asin": "0099590085",
+    "category": "Books",
+    "countries": {
+      "uk": true,
+    },
+    "dimensions": {
+      "cm": [
+        19.8120,
+        13.0048,
+        4.1910
+      ]
+    },
+    "weight": {
+      "kg": 0.4218
+    },
+    "fulfilmentfee": {
+      "ps": 1.41
+    },
+    "monthlystorage": {
+      "ps": 0.01
+    },
+    "totalfulfilment": {
+      "ps": 1.42
     }
   }
 }
