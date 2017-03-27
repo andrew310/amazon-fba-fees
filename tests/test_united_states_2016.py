@@ -15,7 +15,7 @@ class FeesTestUnitedStates(TestCase):
     def test_get_weight_handling(self):
         """Test weight handling function """
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         result = fees.get_weight_handling('large_standard',
                                       'non-media', Decimal('0.22'))
@@ -25,7 +25,7 @@ class FeesTestUnitedStates(TestCase):
     def test_product_size_tier(self):
         """Test product size tier function """
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         l = 10.39
         w = 7.09
@@ -44,7 +44,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_height = Decimal(20)
         amazon.shipping_length = Decimal(30)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         feeList = fees.unpack_dimensions(amazon)
 
@@ -58,7 +58,7 @@ class FeesTestUnitedStates(TestCase):
         amazon["shipping_height"] = Decimal(20)
         amazon["shipping_length"] = Decimal(30)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         feeList = fees.unpack_dimensions(amazon)
 
@@ -104,7 +104,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_length = Decimal(30)
         amazon.shipping_weight = None
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         fee = fees.get_fba_fee(amazon)
 
@@ -118,7 +118,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_length = None
         amazon.shipping_weight = Decimal(10)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         fee = fees.get_fba_fee(amazon)
 
@@ -131,7 +131,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_length = Decimal(30)
         amazon.shipping_weight = Decimal(30)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         fee = fees.get_referral_fee(amazon)
 
@@ -146,7 +146,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_height = h = Decimal(20)
         amazon.shipping_weight = wt = Decimal(30)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         feeList = fees.unpack_dimensions(amazon)
 
@@ -169,7 +169,7 @@ class FeesTestUnitedStates(TestCase):
         amazon.shipping_height = h = Decimal(2)
         amazon.shipping_weight = wt = Decimal(1.65)
 
-        fees = Fees()
+        fees = Fees("US", 2016)
 
         feeList = fees.unpack_dimensions(amazon)
 

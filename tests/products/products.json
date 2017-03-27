@@ -1,0 +1,310 @@
+{
+  "infinitewarefare":{
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Call of Duty: Infinite Warfare - Standard Edition - Xbox One",
+    "asin": "B01EZA0D8O",
+    "category": "Video Games",
+    "countries": {
+      "us": true,
+      "ca": true,
+      "uk": true,
+    },
+    "dimensions": {
+      "in": [
+        6.77,
+        5.43,
+        0.63
+      ],
+      "cm": [
+        17.1958,
+        13.7922,
+        1.6002
+      ]
+    },
+    "weight": {
+      "lb": 0.09,
+      "kg": 0.0408
+    },
+    "fulfilmentfee": {
+      "usd": 2.41,
+      "cad": 1.91,
+      "ps": 1.19
+    },
+    "monthlystorage": {
+      "usd": 0.01,
+      "cad": 0.01,
+      "ps": 0.00
+    },
+    "pickandpack": {
+      "cad": 0.90
+    },
+    "weighthandling": {
+      "cad": 1.90
+    },
+    "totalfulfilment": {
+      "usd": 2.42,
+      "cad": 2.81,
+      "ps": 1.19
+    }
+  },
+  "gunmetalcabinet": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "American Furniture Classics 916 16 Gun Metal Cabinet, Black",
+    "asin": "B005XC1DLA",
+    "category": "TBD",
+    "countries": {
+      "us": true
+    },
+    "dimensions": {
+      "in": [
+        57,
+        25,
+        8
+      ]
+    },
+    "weight": {
+      "lb": 103.3
+    },
+    "fulfilmentfee": {
+      "usd": 49.37
+    },
+    "monthlystorage": {
+      "usd": 2.84
+    },
+    "totalfulfilment": {
+      "usd": 52.21
+    }
+  },
+  "powerwheelsrideon": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Power Wheels Barbie Jammin Jeep Wrangler",
+    "asin": "B00IVDVX72",
+    "category": "TBD",
+    "countries": {
+      "us":true
+    },
+    "dimensions": {
+      "in": [
+        52.6,
+        25.43,
+        11.26
+      ]
+    },
+    "weight": {
+      "lb": 78
+    },
+    "fulfilmentfee": {
+      "usd": 44.30
+    },
+    "monthlystorage": {
+      "usd": 3.75
+    },
+    "totalfulfilment": {
+      "usd": 48.05
+    }
+  },
+  "xbone": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Microsoft Xbox One 500 GB Console - Black",
+    "asin": "B00KAI3KW2",
+    "category": "Video Games",
+    "countries": {
+      "us": true,
+      "ca": true,
+      "uk": true
+    },
+    "dimensions": {
+      "in": [
+        17,
+        13.4,
+        7.4
+      ],
+      "cm": [
+        43.18,
+        34.036,
+        18.796
+      ]
+    },
+    "weight": {
+      "lb": 11.95,
+      "kg": 5.4204
+    },
+    "fulfilmentfee": {
+      "usd": 8.47,
+      "cad": 8.72,
+      "ps": 3.33
+    },
+    "monthlystorage": {
+      "usd": 0.62,
+      "cad": 0.44,
+      "ps": 0.29
+    },
+    "pickandpack": {
+      "cad": 0.90
+    },
+    "weighthandling":{
+      "cad":7.82
+    },
+    "totalfulfilment": {
+      "usd": 9.09,
+      "cad": 9.16,
+      "ps": 3.62
+    }
+  },
+  "deodorantpack": {
+    "addedby": "flyball",
+    "addedon": "3/13/2017",
+    "datafrom": "Amazon.com",
+    "description": "Old Spice, Sweat Defense, 2.6 Ounce Sticks (Pack of 4)",
+    "asin": "B001G7PN8K",
+    "category": "TBD",
+    "countries": {
+      "us": true,
+      "ca": true
+    },
+    "dimensions": {
+      "in": [
+        10.3,
+        5.4,
+        1.9
+      ],
+      "cm": [
+        26.162,
+        13.716,
+        4.826
+      ]
+    },
+    "weight": {
+      "lb": 1.00,
+      "kg": 0.4536
+    },
+    "fulfilmentfee": {
+      "usd": 4.18,
+      "cad": 5.67
+    },
+    "monthlystorage": {
+      "usd": 0.04,
+      "cad": 0.03
+    },
+    "pickandpack": {
+      "cad": 1.55
+    },
+    "weighthandling": {
+      "cad": 4.12
+    },
+    "totalfulfilment": {
+      "usd": 4.22,
+      "cad": 5.70
+    }
+  },
+  "powerwheelsduneracer": {
+    "addedby": "flyball",
+    "addedon": "3/22/2017",
+    "datafrom": "Amazon.ca",
+    "description": "Fisher-Price Power Wheels Dune Racer",
+    "asin": "B004M2BINA",
+    "category": "TBD",
+    "countries": {
+      "ca": true
+    },
+    "dimensions": {
+      "cm": [
+        127,
+        73.406,
+        50.546
+      ]
+    },
+    "weight": {
+      "kg": 31.5473
+    },
+    "fulfilmentfee": {
+      "cad": 30.08
+    },
+    "monthlystorage": {
+      "cad": 7.54
+    },
+    "pickandpack": {
+      "cad": 2.65
+    },
+    "weighthandling": {
+      "cad": 27.43
+    },
+    "totalfulfilment": {
+      "cad": 37.62
+    }
+  },
+  "quiltzipperbagcase": {
+    "addedby": "flyball",
+    "addedon": "3/23/2017",
+    "datafrom": "Amazon.ca",
+    "description": "Yosoo 3 Pcs Bamboo Charcoal Large Durable Foldable Clothes Quilt Pillow Blanket Storage Zipper Bag Case Container Organizers Container Box (Blue+Green+Orange)",
+    "asin": "B01CNC7G5O",
+    "category": "TBD",
+    "countries": {
+      "ca": true
+    },
+    "dimensions": {
+      "cm": [
+        32.9946,
+        25.8064,
+        8.0010
+      ]
+    },
+    "weight": {
+      "kg": 0.4808
+    },
+    "fulfilmentfee": {
+      "cad": 5.67
+    },
+    "monthlystorage": {
+      "cad": 0.11
+    },
+    "pickandpack": {
+      "cad": 1.55
+    },
+    "weighthandling": {
+      "cad": 4.12
+    },
+    "totalfulfilment": {
+      "cad": 5.78
+    }
+  },
+  "sapienshistorybook": {
+    "addedby": "flyball",
+    "addedon": "3/26/2017",
+    "datafrom": "Amazon.co.uk",
+    "description": "Sapiens: A brief History of Humankind",
+    "asin": "0099590085",
+    "category": "Books",
+    "countries": {
+      "uk": true,
+    },
+    "dimensions": {
+      "cm": [
+        19.8120,
+        13.0048,
+        4.1910
+      ]
+    },
+    "weight": {
+      "kg": 0.4218
+    },
+    "fulfilmentfee": {
+      "ps": 1.41
+    },
+    "monthlystorage": {
+      "ps": 0.01
+    },
+    "totalfulfilment": {
+      "ps": 1.42
+    }
+  }
+}
